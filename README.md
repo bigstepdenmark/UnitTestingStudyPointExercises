@@ -116,3 +116,5 @@ public class GetNumDaysinMonthTest
     }
 }
 ```
+### Test result
+![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/GetNumDaysinMonthTest.png?token=AVDe6g15FxOUvZ4ZzpBCAQmHFJjDi1bEks5YuzdDwA%3D%3D)
