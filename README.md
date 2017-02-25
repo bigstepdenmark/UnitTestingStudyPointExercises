@@ -230,14 +230,14 @@ public class GetReimbursePercentageTest
 
 ### CODE COVERAGE
 
-*1. How much of the code is covered by test cases to start out?*
+**1. How much of the code is covered by test cases to start out?**
 
 ![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/TestCoverage.png?token=AVDe6r1uBSRsHXLqM4CcwMo20Wp7fl-Dks5YuzuPwA%3D%3D)
 
-*2. Could and should the code coverage of your project be raised?*
+**2. Could and should the code coverage of your project be raised?**
 
 _Næsten alle mine metoder er testet, udover metoden isLeapYear(int year). Denne metode er ikke blevet påkrævet i opgaven, derfor har jeg undladt at test den._
 
-*3. How?*
+**3. How?**
 
 _Ved at teste flere metoder._
