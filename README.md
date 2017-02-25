@@ -236,7 +236,7 @@ public class GetReimbursePercentageTest
 
 **2. Could and should the code coverage of your project be raised?**
 
-_Næsten alle mine metoder er testet, udover metoden isLeapYear(int year). Denne metode er ikke blevet påkrævet i opgaven, derfor har jeg undladt at test den._
+_Alle metoder er testet udover isLeapYear(int year) metode. Denne metode er ikke påkrævet i opgaven, derfor har jeg undladt at test den._
 
 **3. How?**
 
