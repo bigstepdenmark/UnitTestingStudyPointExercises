@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 @RunWith( Parameterized.class )
 public class getReimbursePercentageTest
 {
-    private Controller c;
+    private Controller ctrl;
     private boolean isDeductiblePaid, doctorVisit, hospitalVisit;
     private int expected;
 
@@ -44,7 +44,7 @@ public class getReimbursePercentageTest
     @org.junit.Before
     public void setUp() throws Exception
     {
-        c = new Controller();
+        ctrl = new Controller();
     }
 
     @org.junit.After
@@ -56,7 +56,7 @@ public class getReimbursePercentageTest
     @Test
     public void getReimbursePercentage()
     {
-        assertEquals( expected, c.getReimbursePercentage( isDeductiblePaid, doctorVisit, hospitalVisit ) );
+        assertEquals( expected, ctrl.getReimbursePercentage( isDeductiblePaid, doctorVisit, hospitalVisit ) );
     }
 
 }

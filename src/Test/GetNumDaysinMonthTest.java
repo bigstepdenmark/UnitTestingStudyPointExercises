@@ -18,7 +18,7 @@ import java.util.Collection;
 @RunWith( Parameterized.class )
 public class GetNumDaysinMonthTest
 {
-    private Controller c;
+    private Controller ctrl;
     private int month, year, expected;
 
     public GetNumDaysinMonthTest(int month, int year, int excepted)
@@ -34,7 +34,7 @@ public class GetNumDaysinMonthTest
         return Arrays.asList( new Object[][]{
 
                 // Equivalences classes (month)
-                // ******************************
+                // ***********************************************
                 // Valid equivalence classes
                 { 3, 2017, 31 }, // Months with 31 days
                 { 4, 2017, 30 }, // Months with 30 days
@@ -45,7 +45,7 @@ public class GetNumDaysinMonthTest
                 { 13, 2017, 0 }, // Month> 12
 
                 // Equivalences classes (year)
-                // ******************************
+                // ***********************************************
                 // Valid equivalence classes
                 { 1, 2000, 31 }, // Leap years
                 { 1, 2017, 31 }, // Non‐leap years
@@ -54,7 +54,7 @@ public class GetNumDaysinMonthTest
                 { Integer.MAX_VALUE * 2, 2017, 0 }, // Year > 231‐1
 
                 // Equivalences classes (month + year)
-                // **************************************
+                /// ***********************************************
                 { 1, 2017, 31 }, // Months with 31 days, non‐leap year
                 { 1, 2000, 31 }, // Months with 31 days, leap year
                 { 4, 2017, 30 }, // Months with 30 days, non‐leap year
@@ -63,7 +63,7 @@ public class GetNumDaysinMonthTest
                 { 2, 2000, 29 }, // February, leap year
 
                 // Boundary values(month + year)
-                // **************************************
+                // ***********************************************
                 // Leap years divisible by 400
                 { 1, 1600, 31 },
                 { 1, 2000, 31 },
@@ -80,7 +80,7 @@ public class GetNumDaysinMonthTest
     @org.junit.Before
     public void setUp() throws Exception
     {
-        c = new Controller();
+        ctrl = new Controller();
     }
 
     @org.junit.After
@@ -92,6 +92,6 @@ public class GetNumDaysinMonthTest
     @Test
     public void getNumDaysinMonth()
     {
-        assertEquals( expected, c.getNumDaysinMonth( month, year ) );
+        assertEquals( expected, ctrl.getNumDaysinMonth( month, year ) );
     }
 }
