@@ -1,8 +1,17 @@
 # Unit Testing Study Point Exercise
 
-### UNIT TESTS BASED ON EQUIVALENCE PARTITIONING AND BOUNDARY VALUE ANALYSIS
-
+Controller class
 ```java
+package Controller;
+
+import java.time.DateTimeException;
+import java.time.YearMonth;
+
+/**
+ * Created by ismailcam on 25/02/2017.
+ */
+public class Controller
+{
     public int getNumDaysinMonth(int month, int year)
     {
         try
@@ -15,10 +24,35 @@
             return 0;
         }
     }
+
+    /**
+     * Used Gregorian calendar (start 1582)
+     */
+    public boolean isLeapYear(int year)
+    {
+        return year >= 1582 && ( ( year % 4 == 0 && year % 100 != 0 ) || ( year % 400 == 0 ) );
+    }
+
+    public int getReimbursePercentage(boolean isDeductiblePaid, boolean doctorVisit, boolean hospitalVisit)
+    {
+        if( isDeductiblePaid )
+            if( doctorVisit && !hospitalVisit ) return 50;
+            else if( !doctorVisit && hospitalVisit ) return 80;
+            else return 0;
+
+        return 0;
+    }
+}
+
 ```
 
+---
+
+### UNIT TESTS BASED ON EQUIVALENCE PARTITIONING AND BOUNDARY VALUE ANALYSIS
+
+GetNumDaysinMonthTest class
 ```java
-    package Test;
+package Test;
 
 import org.junit.*;
 
@@ -116,3 +150,78 @@ public class GetNumDaysinMonthTest
     }
 }
 ```
+### Test result
+![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/GetNumDaysinMonthTest.png?token=AVDe6g15FxOUvZ4ZzpBCAQmHFJjDi1bEks5YuzdDwA%3D%3D)
+
+---
+
+### UNIT TESTS BASED ON DECISION TABLES
+
+GetReimbursePercentageTest class
+```java
+package Test;
+
+import Controller.Controller;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by ismailcam on 25/02/2017.
+ */
+@RunWith( Parameterized.class )
+public class GetReimbursePercentageTest
+{
+    private Controller ctrl;
+    private boolean isDeductiblePaid, doctorVisit, hospitalVisit;
+    private int expected;
+
+    public GetReimbursePercentageTest(boolean isDeductiblePaid, boolean doctorVisit, boolean hospitalVisit, int expected)
+    {
+        this.isDeductiblePaid = isDeductiblePaid;
+        this.doctorVisit = doctorVisit;
+        this.hospitalVisit = hospitalVisit;
+        this.expected = expected;
+    }
+
+    @Parameterized.Parameters
+    public static Collection< Object[] > data()
+    {
+        return Arrays.asList( new Object[][]{
+
+                { true, true, false, 50 },
+                { true, false, true, 80 },
+                { false, true, false, 0 },
+                { false, false, true, 0 },
+                { true, true, true, 0 },
+        } );
+    }
+
+    @org.junit.Before
+    public void setUp() throws Exception
+    {
+        ctrl = new Controller();
+    }
+
+    @org.junit.After
+    public void tearDown() throws Exception
+    {
+
+    }
+
+    @Test
+    public void getReimbursePercentage()
+    {
+        assertEquals( expected, ctrl.getReimbursePercentage( isDeductiblePaid, doctorVisit, hospitalVisit ) );
+    }
+
+}
+```
+
+### Test result
+![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/getReimbursePercentageTest.png?token=AVDe6iWcPb9Gt6FJIyNAmdFZrrK8kDZsks5YuzkBwA%3D%3D)
