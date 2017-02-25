@@ -14,13 +14,13 @@ import static org.junit.Assert.*;
  * Created by ismailcam on 25/02/2017.
  */
 @RunWith( Parameterized.class )
-public class getReimbursePercentageTest
+public class GetReimbursePercentageTest
 {
     private Controller ctrl;
     private boolean isDeductiblePaid, doctorVisit, hospitalVisit;
     private int expected;
 
-    public getReimbursePercentageTest(boolean isDeductiblePaid, boolean doctorVisit, boolean hospitalVisit, int expected)
+    public GetReimbursePercentageTest(boolean isDeductiblePaid, boolean doctorVisit, boolean hospitalVisit, int expected)
     {
         this.isDeductiblePaid = isDeductiblePaid;
         this.doctorVisit = doctorVisit;
