@@ -150,7 +150,7 @@ public class GetNumDaysinMonthTest
     }
 }
 ```
-### Test result
+### Test result for getNumDaysinMonth
 ![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/GetNumDaysinMonthTest.png?token=AVDe6g15FxOUvZ4ZzpBCAQmHFJjDi1bEks5YuzdDwA%3D%3D)
 
 ---
@@ -223,5 +223,21 @@ public class GetReimbursePercentageTest
 }
 ```
 
-### Test result
+### Test result for getReimbursePercentage
 ![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/getReimbursePercentageTest.png?token=AVDe6iWcPb9Gt6FJIyNAmdFZrrK8kDZsks5YuzkBwA%3D%3D)
+
+---
+
+### CODE COVERAGE
+
+*1. How much of the code is covered by test cases to start out?*
+
+![alt tag](https://raw.githubusercontent.com/bigstepdenmark/UnitTestingStudyPointExercises/master/images/TestCoverage.png?token=AVDe6r1uBSRsHXLqM4CcwMo20Wp7fl-Dks5YuzuPwA%3D%3D)
+
+*2. Could and should the code coverage of your project be raised?*
+
+_Næsten alle mine metoder er testet, udover metoden isLeapYear(int year). Denne metode er ikke blevet påkrævet i opgaven, derfor har jeg undladt at test den._
+
+*3. How?*
+
+_Ved at teste flere metoder._
